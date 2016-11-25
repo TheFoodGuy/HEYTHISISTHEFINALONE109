@@ -2,13 +2,13 @@
 #define THREADBEGIN_H
 
 #include "Threads.h"
+#include "Thread.h"
 
-//#include "Thread.h"
-
-class Thread_Begin: public Threads{
+class Thread_Begin: public Threads, public Thread{
     public:
         Thread_Begin();
         void doThread(vector<Var*>const&);
+        void * threadMainBody (void * arg);
         Instruction *clone();
         ~Thread_Begin();
 };

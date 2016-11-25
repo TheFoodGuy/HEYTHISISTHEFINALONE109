@@ -1,5 +1,5 @@
 #include "Connection.h"
-
+#include "common.h"
 Connection::Connection(TCPSocket * p_tcpSocket) : Thread(){
     tcpSocket = p_tcpSocket;
     next_connection = NULL;
