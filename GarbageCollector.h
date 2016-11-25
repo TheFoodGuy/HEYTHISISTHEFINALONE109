@@ -3,7 +3,7 @@
 
 #include "Connection.h"
 
-class GarbageCollector{
+class GarbageCollector {
     private: 
         Connection * head; 
         Connection * tail;
