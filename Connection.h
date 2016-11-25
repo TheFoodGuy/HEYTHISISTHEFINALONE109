@@ -1,8 +1,5 @@
-//#include "Thread.h"
-//#include "common.h"
 #include "Thread.h"
 #include "TCPSocket.h"
-//#include "common.h"
 
 #include "map.h"
 class Connection : public Thread{
