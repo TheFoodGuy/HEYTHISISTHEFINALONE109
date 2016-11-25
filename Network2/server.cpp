@@ -30,13 +30,13 @@ int main (int argc,char ** argv){
 
   TCPServerSocket *tcpServerSocket = new TCPServerSocket("0.0.0.0",9999,5);
   bool x = tcpServerSocket->initializeSocket();
-  cout << x <<endl;
-  cout << true <<endl;
+  //cout << x <<endl;
+  //cout << true <<endl;
   for(;;){
     TCPSocket *tcpSocket = tcpServerSocket->getConnection();
-    cout << "no errors bruh yet" <<endl;
+    //cout << "no errors bruh yet" <<endl;
     if(tcpSocket == NULL) break;
-    cout << "no errors until here" <<endl;
+    //cout << "no errors until here" <<endl;
     Connection *c = new Connection(tcpSocket);
     c->start();
   }
