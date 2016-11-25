@@ -1,7 +1,9 @@
+//#include "Thread.h"
+//#include "common.h"
 #include "Thread.h"
-//#include "TCPSocket.h"
-#include "map.h"
-class Connection : public Thread{
+#include "TCPSocket.h"
+
+class Connection: public Thread{
     private: 
         TCPSocket * tcpSocket;
         Connection * next_connection; 

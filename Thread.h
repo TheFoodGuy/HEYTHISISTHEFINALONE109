@@ -8,7 +8,7 @@
 #ifndef THREAD_H
 #define THREAD_H
 
-#include "common.h"
+//#include "common.h"
 //#include "includes.h"
 #include <iostream>
 using namespace std;

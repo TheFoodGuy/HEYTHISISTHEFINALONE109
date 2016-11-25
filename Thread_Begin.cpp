@@ -15,6 +15,10 @@ Instruction* Thread_Begin::clone(){
 	return threadb;
 }
 
+void *threadMainBody(void *arg){
+	return nullptr;
+}
+
 Thread_Begin::~Thread_Begin(){
 
 }
