@@ -60,13 +60,13 @@ int main (int argc,char ** argv)
 
 
 	struct sockaddr_in serverAddr;
-	std::cout << "Hi" << endl;
+	//std::cout << "Hi" << endl;
 	TCPSocket *mySocket = new TCPSocket((char *)inet_ntoa(serverAddr.sin_addr),9999);
 
 	//the code below adds content to the buffer
 	char *mystr = "test.mis";
 	strcpy(source,mystr);
-	std::cout << "right below mis" << std::endl;
+	//std::cout << "right below mis" << std::endl;
 	if(int x = mySocket->writeToSocket(source,1023) < 0){
 		std::cout << x << " this is the error value" << endl;
 	}else{

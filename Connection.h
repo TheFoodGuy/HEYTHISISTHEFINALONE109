@@ -1,6 +1,5 @@
 #include "Thread.h"
 #include "TCPSocket.h"
-
 #include "map.h"
 class Connection : public Thread{
     private: 

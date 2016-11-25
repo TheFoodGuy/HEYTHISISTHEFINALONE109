@@ -24,14 +24,14 @@ Thread::Thread(void *(*_threadRoutine) (void *))
     termination_request = false;    // Set termination request to false
     pthread_mutex_init (&mutex,NULL);// Initialize execution control mutex with default attributes 
     if ( _threadRoutine != NULL ) {
-				std::cout << "run should come here" << std::endl;
+				//std::cout << "run should come here" << std::endl;
 				threadRoutine=_threadRoutine;
 				//PRINT CONTENT BELOW
 				//cout << threadRoutine<<endl;
 
 				} // Set the pthread start routine to _threadRoutine if not NULL 
     else {
-	std::cout << "run shouldnt come here" <<std::endl;
+	//std::cout << "run shouldnt come here" <<std::endl;
 	threadRoutine = &run;
 	 }  // Else use the default static method run
     pthread_attr_init(&pthread_attr);   // Initialize pthread attributes

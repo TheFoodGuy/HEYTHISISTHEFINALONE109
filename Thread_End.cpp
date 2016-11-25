@@ -4,8 +4,14 @@ Thread_End::Thread_End(){
 
 }
 
-void Thread_End::doThread(vector<Var*>const& vec) {
+void Thread_End::doThread(vector < vector<Var*> >const&vec) {
+	cout << "Calling doThread in Thread_End" << endl;
+	vector <Var*> tempVec = vec.at(0);
+	cout << tempVec.at(0)->getString() << endl;
+}
 
+void *Thread_End::threadMainBody (void * arg){
+	return nullptr;
 }
 
 Instruction* Thread_End::clone(){
