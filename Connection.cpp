@@ -1,4 +1,4 @@
-#include "Connection.h"
+//#include "Connection.h"
 #include "common.h"
 Connection::Connection(TCPSocket * p_tcpSocket) : Thread(){
     tcpSocket = p_tcpSocket;

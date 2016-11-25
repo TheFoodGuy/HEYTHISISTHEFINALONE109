@@ -64,6 +64,6 @@
 #include "TCPSocket.h"
 //#include "Connection.h"
 #include "Thread.h"
-//#include "GarbageCollector.h"
+#include "GarbageCollector.h"
 
 #endif 
