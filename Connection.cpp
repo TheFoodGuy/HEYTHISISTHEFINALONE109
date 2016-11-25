@@ -73,6 +73,9 @@ void * Connection::threadMainBody(void * arg){
 	}else{
 	   std::cout << "success" << std::endl;
 	}
+	
+	int increment = 0; //this the reference pointer to the index 
+
 
       while(getline(randfile,line)){
         if(((int)line.length()) > FILE_LINE_LENGTH){
@@ -189,7 +192,8 @@ void * Connection::threadMainBody(void * arg){
 			//throw error of no thread_end found when thread_begin called first	
 			if(dynamic_cast<Thread_Begin*>(s)){
 			  thread = 1;
-			  doubleVec.push_back(stringBuffer);
+			  doubleVec.push_back( stringBuffer ); 
+			  //doubleVec.push_back(stringBuffer);
 			}else if(dynamic_cast<Thread_End*>(s)){
 			  thread = 0;
 			  //s->doThread(stringBuffer);
@@ -213,7 +217,7 @@ void * Connection::threadMainBody(void * arg){
     }
 
 
-    std::cout << "successfull yaayyy" <<std::endl;
+    //std::cout << "successfull yaayyy" <<std::endl;
 	
     char file_name[1024];
     memset(file_name, 0, 1024);
@@ -242,7 +246,7 @@ void * Connection::threadMainBody(void * arg){
             tcpSocket->writeToSocket(buffer,fsize);
 
 	    //BELOW IS WHERE YOU CAN SEE THE OUPUT OF THE BUFFER
-	    std::cout << "SHOWS BELOW IS MAGIC (connection.cpp)" <<std::endl;
+	    //std::cout << "SHOWS BELOW IS MAGIC (connection.cpp)" <<std::endl;
 	    printf("%s\n",buffer);
 	    //int x = 5+3;
 	    //fgets(line, 5, f); 
@@ -257,7 +261,7 @@ void * Connection::threadMainBody(void * arg){
     }
 
     // tcpSocket->shutDown();
-	std::cout << "hey sucker" << std::endl;
+	//std::cout << "hey sucker" << std::endl;
 
 
 

@@ -4,8 +4,9 @@ Thread_Begin::Thread_Begin(){
 
 }
 
-void Thread_Begin::doThread(vector<Var*>const& vec) {
+void Thread_Begin::doThread(vector < vector<Var*> >const& vec) {
     pthread_t tid1;
+	std::cout << "yo why twice here?" << std::endl;
 	char msg1[] = "tid1";
 	//pthread_create(&tid1, NULL, , (void*)msg1);
 }
