@@ -1,0 +1,8 @@
+VAR $myint, NUMERIC, 10
+VAR $myint1, NUMERIC, 11
+VAR $myint2, NUMERIC, 22
+OUT 5, "hello"
+
+
+
+
