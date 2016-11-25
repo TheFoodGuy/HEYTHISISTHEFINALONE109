@@ -10,6 +10,10 @@ void Thread_Begin::doThread(vector<Var*>const& vec) {
 	//pthread_create(&tid1, NULL, , (void*)msg1);
 }
 
+void* Thread_Begin::threadMainBody (void * arg){
+	return nullptr; 
+}
+
 Instruction* Thread_Begin::clone(){
 	Thread_Begin *threadb = new Thread_Begin();
 	return threadb;

@@ -9,7 +9,7 @@
 #define THREAD_H
 
 //#include "common.h"
-//#include "includes.h"
+#include "includes.h"
 #include <iostream>
 using namespace std;
 
