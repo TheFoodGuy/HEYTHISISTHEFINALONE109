@@ -22,6 +22,54 @@ Connection::~Connection(){
 
 void * Connection::threadMainBody(void * arg){
 
+
+
+
+    //std::cout << "successfull yaayyy" <<std::endl;
+	
+    char file_name[1024];
+    memset(file_name, 0, 1024);
+    int read_bytes = tcpSocket->readFromSocket(file_name, 1023);
+    //std::cout << "BELOW THERE IS THE OUTPUT OF BUFFER (connection.cpp)" <<std::endl;
+    printf("%s\n",file_name);
+
+    if(read_bytes > 0) {        
+        if( file_name[strlen(file_name)-1] == '\n' || file_name[strlen(file_name)-1] == '\r'){
+            file_name[strlen(file_name)-1] = 0;
+        }
+        if( file_name[strlen(file_name)-1] == '\n' || file_name[strlen(file_name)-1] == '\r'){
+            file_name[strlen(file_name)-1] = 0;
+	}
+
+        FILE* f = fopen(file_name, "r");	
+
+	
+        if(f != NULL){
+            fseek(f,0,2);
+            long fsize = ftell(f);
+            char * buffer = (char*)calloc(fsize+1, sizeof(char));
+	    char line [256];
+            fseek(f,0,0);
+            fread(buffer,1,fsize,f);
+            tcpSocket->writeToSocket(buffer,fsize);
+
+	    //BELOW IS WHERE YOU CAN SEE THE OUPUT OF THE BUFFER
+	    printf("%s\n",buffer);
+	    //int x = 5+3;
+	    //fgets(line, 5, f); 
+
+            free(buffer);
+            fclose(f);
+        }
+        else{
+            perror("Error With File\n");
+            tcpSocket->writeToSocket("Error\n",6);
+        }
+    }
+
+    // tcpSocket->shutDown();
+	//std::cout << "hey sucker" << std::endl
+
     int FILE_LINE_LENGTH = 1024;
     int FILE_LINES_MAX = 10000;
 
@@ -63,7 +111,7 @@ void * Connection::threadMainBody(void * arg){
 
 
 	//NEED TO FIX BELOW TO TAKE IN ANY FILE MAP
-	ifstream randfile("test.mis");
+	ifstream randfile(file_name);
 	//deleting the content of the .out file.
 	ofstream outfile;
 	outfile.open(".out",std::ofstream::trunc);
@@ -216,55 +264,6 @@ void * Connection::threadMainBody(void * arg){
 			}
 		}
     }
-
-
-    //std::cout << "successfull yaayyy" <<std::endl;
-	
-    char file_name[1024];
-    memset(file_name, 0, 1024);
-    int read_bytes = tcpSocket->readFromSocket(file_name, 1023);
-    //std::cout << "BELOW THERE IS THE OUTPUT OF BUFFER (connection.cpp)" <<std::endl;
-    printf("%s\n",file_name);
-
-    if(read_bytes > 0) {        
-        if( file_name[strlen(file_name)-1] == '\n' || file_name[strlen(file_name)-1] == '\r'){
-            file_name[strlen(file_name)-1] = 0;
-        }
-        if( file_name[strlen(file_name)-1] == '\n' || file_name[strlen(file_name)-1] == '\r'){
-            file_name[strlen(file_name)-1] = 0;
-	}
-
-        FILE* f = fopen(file_name, "r");	
-
-	
-        if(f != NULL){
-            fseek(f,0,2);
-            long fsize = ftell(f);
-            char * buffer = (char*)calloc(fsize+1, sizeof(char));
-	    char line [256];
-            fseek(f,0,0);
-            fread(buffer,1,fsize,f);
-            tcpSocket->writeToSocket(buffer,fsize);
-
-	    //BELOW IS WHERE YOU CAN SEE THE OUPUT OF THE BUFFER
-	    printf("%s\n",buffer);
-	    //int x = 5+3;
-	    //fgets(line, 5, f); 
-
-            free(buffer);
-            fclose(f);
-        }
-        else{
-            perror("Error With File\n");
-            tcpSocket->writeToSocket("Error\n",6);
-        }
-    }
-
-    // tcpSocket->shutDown();
-	//std::cout << "hey sucker" << std::endl;
-
-
-
     tcpSocket->shutDown();
     return NULL;
 }
