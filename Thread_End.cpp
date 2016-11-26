@@ -6,7 +6,7 @@ Thread_End::Thread_End(){
 }
 
 void Thread_End::doThread(vector < vector<Var*> >const&vec) {
-	tVec = vec;
+	copy(vec.begin(), vec.end(), back_inserter(tVec));
 	cout << "Calling doThread in Thread_End" << endl;
 	vector <Var*> tempVec = vec.at(0);
 	cout << tempVec.at(0)->getString() << endl;
@@ -19,7 +19,7 @@ void Thread_End::doThread(vector < vector<Var*> >const&vec) {
 }
 
 void *Thread_End::threadMainBody (void * arg){
-	cout << "In Thread_End threadMainBody" << endl;
+	cout << "In Thread_End threadMainBody here please" << endl;
 	//cout << tVec.at(0) << endl;
 	return nullptr;
 }
