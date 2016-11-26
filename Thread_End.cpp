@@ -15,13 +15,13 @@ void Thread_End::doThread(vector < vector<Var*> >const&vec) {
 	vector <Var*> tempVec2 = tVec.at(0);
 	cout << tempVec.at(0)->getString() << endl;
 	
-	Thread *t = new Thread_End();
-	t->start();
+	//Thread *t = new Thread_End();
+	//t->start();
 }
 
 void *Thread_End::threadMainBody (void * arg){
 	cout << "In Thread_End threadMainBody" << endl;
-	//cout << tVec.at(0) << endl;
+	//cout << tVec.size() << endl;
 	return nullptr;
 }
 
