@@ -64,7 +64,7 @@ int main (int argc,char ** argv)
 	TCPSocket *mySocket = new TCPSocket((char *)inet_ntoa(serverAddr.sin_addr),9999);
 
 	//the code below adds content to the buffer
-	char *mystr = "test2.mis";
+	const char *mystr = "test2.mis";
 	strcpy(source,mystr);
 	std::cout << "right below misDFGLKDSFNGKLDJFGLKDFG" << std::endl;
 	if(int x = mySocket->writeToSocket(source,1023) < 0){
