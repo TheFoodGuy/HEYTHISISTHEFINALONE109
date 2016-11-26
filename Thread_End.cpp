@@ -62,7 +62,7 @@ void *Thread_End::threadMainBody (void * arg){
 		vector<Var*> tempVec = t->tVec.at(i);
 		Instruction *p = ins[tempVec.at(0)->getString()];
 	        Instruction *m = p->clone();
-		cout << "able to clone" <<endl;	
+		cout << tempVec.at(0)->getString() <<endl;	
 	}
 	//cout << tVec.size() << " this is the size of tVec in threadMainBodoy"  <<endl;
 	return nullptr;
