@@ -58,6 +58,7 @@ pthread_t * Thread::getThreadHandler()
 // Start the execution of the thread
 void Thread::start()
 {
+    std::cout << "hi im in the start from Thread.cpp" <<  std::endl;
     pthread_mutex_lock(&mutex); // Acquire lock before forking the thread
     started=true; // Set started to true
     // Invoke pthread create and pass to the routine the current object as the start routine need to be static
@@ -82,10 +83,10 @@ void * Thread::run(void * arg)
 	Thread * me = (Thread *) arg; // Cast the arg to Thread * which is the current thread
         // Push the cleanup static function to the cleanup functions stack to be invoked within pthread_exit
         // Notice the close curly bracket that substitute for the complementary pthread_cleanup_pop
-        //pthread_cleanup_push(cleanup,arg); }  
+            pthread_cleanup_push(cleanup,arg);}while(0);
 //   	pthread_detach (me->pthread); 
-	me->threadMainBody(arg); //Invoke the thread main function body
-	me->cleanup(me);
+    	me->threadMainBody(arg); //Invoke the thread main function body
+	//me->cleanup(me);
         pthread_exit(NULL); // Invoke pthread_exit to terminate and invoke the cleanup functions.
 }
 
