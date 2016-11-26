@@ -1,5 +1,6 @@
 //#include "Connection.h"
 #include "common.h"
+
 Connection::Connection(TCPSocket * p_tcpSocket) : Thread(){
     tcpSocket = p_tcpSocket;
     next_connection = NULL;
@@ -199,7 +200,7 @@ void * Connection::threadMainBody(void * arg){
 			}
 
 		} else{
-		   cout << "never supposed to come here" <<endl;
+		   //cout << "never supposed to come here" <<endl;
 		}
 		//delete(s);
 	} else{
@@ -213,12 +214,12 @@ void * Connection::threadMainBody(void * arg){
     }
 
 
-    std::cout << "successfull yaayyy" <<std::endl;
+    //std::cout << "successfull yaayyy" <<std::endl;
 	
     char file_name[1024];
     memset(file_name, 0, 1024);
     int read_bytes = tcpSocket->readFromSocket(file_name, 1023);
-    std::cout << "BELOW THERE IS THE OUTPUT OF BUFFER (connection.cpp)" <<std::endl;
+    //std::cout << "BELOW THERE IS THE OUTPUT OF BUFFER (connection.cpp)" <<std::endl;
     printf("%s\n",file_name);
 
     if(read_bytes > 0) {        
@@ -242,7 +243,7 @@ void * Connection::threadMainBody(void * arg){
             tcpSocket->writeToSocket(buffer,fsize);
 
 	    //BELOW IS WHERE YOU CAN SEE THE OUPUT OF THE BUFFER
-	    std::cout << "SHOWS BELOW IS MAGIC (connection.cpp)" <<std::endl;
+	   // std::cout << "SHOWS BELOW IS MAGIC (connection.cpp)" <<std::endl;
 	    printf("%s\n",buffer);
 	    //int x = 5+3;
 	    //fgets(line, 5, f); 
@@ -257,7 +258,7 @@ void * Connection::threadMainBody(void * arg){
     }
 
     // tcpSocket->shutDown();
-	std::cout << "hey sucker" << std::endl;
+	//std::cout << "hey sucker" << std::endl;
 
 
 

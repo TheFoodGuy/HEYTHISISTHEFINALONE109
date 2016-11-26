@@ -56,6 +56,7 @@ bool TCPServerSocket::initializeSocket ( ) // Initialize server socket
  		sock = -1;
  		return false;
  	}
+         //::bind is working for both linux and mac now
          // Bind the socket handler to the serverAddr
         if (::bind(sock, (struct sockaddr *)&serverAddr, sizeof(struct sockaddr)) == -1) //-1 if there is an error or not there and what not 
         {

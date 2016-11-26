@@ -33,14 +33,14 @@ int main (int argc,char ** argv){
   TCPServerSocket *tcpServerSocket = new TCPServerSocket("0.0.0.0",9999,5);
   GarbageCollector * garbageCollector = new GarbageCollector();
   bool x = tcpServerSocket->initializeSocket(); 
-  cout << x <<endl;
-  cout << true <<endl;
+  //cout << x <<endl;
+  //cout << true <<endl;
   for(;;){
     TCPSocket *tcpSocket = tcpServerSocket->getConnection(); //right here? 
-    cout << "no errors bruh yet" <<endl; //error is occurring somewhere around here 
+    //cout << "no errors bruh yet" <<endl; //error is occurring somewhere around here 
     if(tcpSocket == NULL) break;
     garbageCollector->cleanup();
-    cout << "no errors until here" <<endl;
+    //cout << "no errors until here" <<endl;
     Connection *c = new Connection(tcpSocket);
     c->start();
     garbageCollector->addConnection(c);

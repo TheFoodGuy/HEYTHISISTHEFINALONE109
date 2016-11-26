@@ -1,7 +1,4 @@
 THREAD_BEGIN
-OUT 5, "hello"
-OUT "hello2"
+VAR $mystring, STRING, 100, "hello world"
 THREAD_END
-
-
 
