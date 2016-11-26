@@ -1,7 +1,7 @@
 #include "Thread_End.h"
 
 
-Thread_End::Thread_End(){
+Thread_End::Thread_End() : Thread{
 
 }
 
@@ -19,8 +19,9 @@ void Thread_End::doThread(vector < vector<Var*> >const&vec) {
 }
 
 void *Thread_End::threadMainBody (void * arg){
-	cout << "In Thread_End threadMainBody here please" << endl;
-	//cout << tVec.at(0) << endl;
+	cout << "In Thread_End threadMainBody" << endl;
+	cout << tVec.size() << " this shit" << endl;
+	//std::cout << tVec.at(0) << std::endl;
 	return nullptr;
 }
 Instruction* Thread_End::clone(){
