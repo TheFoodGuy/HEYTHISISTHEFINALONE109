@@ -246,6 +246,7 @@ void * Connection::threadMainBody(void * arg){
 			}else if(dynamic_cast<Thread_End*>(s)){
 			  thread = 0;
 			  //s->doThread(stringBuffer);
+			  doubleVec.push_back(stringBuffer);
 			  s->doThread(doubleVec);
 			}else{
 			  doubleVec.push_back(stringBuffer);

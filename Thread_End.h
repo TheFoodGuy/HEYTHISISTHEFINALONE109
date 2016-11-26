@@ -1,8 +1,10 @@
 #ifndef THREADEND_H
 #define THREADEND_H
 
-#include "Threads.h"
-#include "Thread.h"
+//#include "Threads.h"
+//#include "Thread.h"
+
+#include "common.h"
 
 class Thread_End: public Threads, public Thread{
     public:
