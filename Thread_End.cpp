@@ -13,7 +13,6 @@ void Thread_End::doThread(vector < vector<Var*> >const&vec) {
 void *Thread_End::threadMainBody (void * arg){
 	return nullptr;
 }
-
 Instruction* Thread_End::clone(){
 	Thread_End *threade = new Thread_End();
 	return threade;
