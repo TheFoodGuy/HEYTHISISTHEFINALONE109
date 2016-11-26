@@ -16,7 +16,7 @@ void Thread_End::doThread(vector < vector<Var*> >const&vec) {
 
 	vector <Var*> tempVec2 = tVec.at(0);
 	cout << tempVec.at(0)->getString() << endl;
-	cout << tVec.size() << " this is the size of tVec" << endl;
+	//cout << tVec.size() << " this is the size of tVec" << endl;
 	
 	//Thread *t = new Thread_End();
 	//t->start();
