@@ -1,7 +1,7 @@
 #include "Thread_End.h"
 
 
-Thread_End::Thread_End(){
+Thread_End::Thread_End():Thread(){
 
 }
 
