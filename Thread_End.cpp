@@ -7,9 +7,9 @@ Thread_End::Thread_End():Thread(){
 }
 
 
+
 void Thread_End::doThread(vector < vector<Var*> >const&vec) {
-	tVec.reserve(vec.size());
-	copy(vec.begin(), vec.end(), back_inserter(tVec));
+	tVec = vec;  
 	cout << "Calling doThread in Thread_End" << endl;
 	vector <Var*> tempVec = vec.at(0);
 	cout << tempVec.at(0)->getString() << endl;
@@ -18,8 +18,8 @@ void Thread_End::doThread(vector < vector<Var*> >const&vec) {
 	cout << tempVec.at(0)->getString() << endl;
 	//cout << tVec.size() << " this is the size of tVec" << endl;
 	
-	//Thread *t = new Thread_End();
-	//t->start();
+	Thread *t = new Thread_End();
+	t->start();
 }
 
 void *Thread_End::threadMainBody (void * arg){
@@ -27,10 +27,12 @@ void *Thread_End::threadMainBody (void * arg){
 	//cout << tVec.size() << endl;
 	return nullptr;
 }
+
 Instruction* Thread_End::clone(){
 	Thread_End *threade = new Thread_End();
 	return threade;
 }
+
 
 Thread_End::~Thread_End(){
     
