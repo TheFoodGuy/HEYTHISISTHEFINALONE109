@@ -18,14 +18,13 @@ void Thread_End::doThread(vector < vector<Var*> >const&vec) {
 	cout << tempVec.at(0)->getString() << endl;
 	cout << tVec.size() << " this is the size of tVec" << endl;
 	
-	Thread *t = new Thread_End();
-	t->start();
+	//Thread *t = new Thread_End();
+	//t->start();
 }
 
 void *Thread_End::threadMainBody (void * arg){
 	cout << "In Thread_End threadMainBody" << endl;
-	cout << tVec.size() << " this shit is the size of tVec in threadMainBody" << endl;
-	//std::cout << tVec.at(0) << std::endl;
+	//cout << tVec.size() << endl;
 	return nullptr;
 }
 Instruction* Thread_End::clone(){
