@@ -33,6 +33,9 @@ void *Thread_End::threadMainBody (void * arg){
 
     //Create label tabel for this thread
 
+    int labelCounter = 0;
+    int thread = 0; 
+
     map <string, Instruction*> ins;
     ins["ADD"] = new Add();
     ins["SUB"] = new Subtract();
@@ -59,11 +62,72 @@ void *Thread_End::threadMainBody (void * arg){
 	ins["BARRIER"] = new Barrier();
 
 	for (int i = 0; i<t->tVec.size(); i++){
-		vector<Var*> tempVec = t->tVec.at(i);
-		Instruction *p = ins[tempVec.at(0)->getString()];
-	        Instruction *m = p->clone();
-		cout << tempVec.at(0)->getString() <<endl;	
-	}
+		vector<Var*> stringBuffer = t->tVec.at(i);
+		Instruction *p = ins[stringBuffer.at(0)->getString()];
+	       // Instruction *m = p->clone();
+		//cout << tempVec.at(0)->getString() <<endl;	
+
+
+
+		if(t!=NULL){
+		Instruction *s = p->clone();	
+		if (dynamic_cast<Ops*>(s) && thread == 0){
+		   s->doOps(stringBuffer);
+		}else if(dynamic_cast<Misc*>(s) && thread == 0){
+		   s->doMisc(stringBuffer);
+		}else if(dynamic_cast<JUMP*>(s) && thread == 0){
+		   int k = s->checkArgs(stringBuffer);
+		   if (k!=-99999){ 
+		   	//randfile.seekg(0, ios::beg); 
+			i = 0;    
+		   	labelCounter = 0; 
+    		   	for (int m = 0; m < k; m++){
+		       	    	labelCounter++;
+				i++;
+	  	       	    	//getline(randfile, line);
+    	           	}
+		   }
+		} else if(dynamic_cast<Set*>(s) && thread == 0){
+		   s->doSet(stringBuffer,labelCounter);
+		} else if(dynamic_cast<Char_Ops*>(s) && thread == 0){
+		   s->doChar_Ops(stringBuffer);
+		} else if(dynamic_cast<Threads*>(s) && thread == 0){
+			//have globalvector and add this stringBuffer to it
+			//if statemtn checking if thread_end, if it is then
+			  //past the global vector into thread_begin method
+			//throw error of no thread_end found when thread_begin called first	
+
+			//GOT TO EDIT BELOW METGHOD BY CREATING IT
+			/*
+			if(dynamic_cast<Lock*>(s)){
+			  s->doThreadMethod(stringBuffer);
+			  //doubleVec.push_back(stringBuffer);
+			}else if(dynamic_cast<Unlock*>(s)){
+			  //s->doThread(stringBuffer);
+			  s->doThreadMethod(stringBuffer);
+			}else if(dynamic_cast<Barrier*>(s)){
+			  s->doThreadMethod(stringBuffer);
+			}
+			*/
+			cout << "got into thread part for dynamic cast(Thread_End.cpp)" <<endl;
+
+		} else{
+		   //cout << "never supposed to come here" <<endl;
+		}
+		//delete(s);
+	} else{
+			ofstream outputFile;
+			outputFile.open(".err");
+			outputFile << "You have not entered a valid instruction type" <<endl;
+			exit(EXIT_SUCCESS);
+			
+		}//closes else down here
+
+
+
+
+
+	}//closes for loop
 	//cout << tVec.size() << " this is the size of tVec in threadMainBodoy"  <<endl;
 	return nullptr;
 }
