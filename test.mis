@@ -1,3 +1,4 @@
+SLEEP 20
 VAR $mystring, STRING, 100, "hello world"
 VAR $mystring, STRING, 100, "hello"
 VAR $myint2, NUMERIC, 350

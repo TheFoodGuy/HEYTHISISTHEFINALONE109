@@ -27,8 +27,6 @@ client: client.cpp TCPSocket.cpp
 client2: client2.cpp TCPSocket.cpp
 	g++ -pthread -std=c++14 client2.cpp TCPSocket.cpp -o client2
 
-
-
 all: labelmain.cpp label.h label.cpp
 	g++ -std=c++14 labelmain.cpp label.cpp -o myMain
 	./myMain
