@@ -117,11 +117,11 @@ void * Connection::threadMainBody(void * arg){
 	outfile.open(".out",std::ofstream::trunc);
 	outfile.close();
 
-	if (randfile.peek() == std::ifstream::traits_type::eof()){
-	   std::cout << "failed" << std::endl;
-	}else{
-	   std::cout << "success" << std::endl;
-	}
+	// if (randfile.peek() == std::ifstream::traits_type::eof()){
+	//    std::cout << "failed" << std::endl;
+	// }else{
+	//    std::cout << "success" << std::endl;
+	// }
 	
 	int increment = 0; //this the reference pointer to the index 
 
@@ -241,7 +241,7 @@ void * Connection::threadMainBody(void * arg){
 			//throw error of no thread_end found when thread_begin called first	
 			if(dynamic_cast<Thread_Begin*>(s)){
 			  thread = 1;
-			  cout << "Im here testing if the next one comes her" << endl;
+			  //cout << "Im here testing if the next one comes her" << endl;
 			  doubleVec.push_back( stringBuffer ); 
 			  //cout << "doublevec size: " <<doubleVec.size()<<endl;
 			  //doubleVec.push_back(stringBuffer);
@@ -251,7 +251,7 @@ void * Connection::threadMainBody(void * arg){
 			  doubleVec.push_back(stringBuffer);
 			  s->doThread(doubleVec);
 		          //cout << "doublevec size2: " <<doubleVec.size()<<endl;
-			  cout << "yooooooo .clear happens after" << endl;
+			  //cout << "yooooooo .clear happens after" << endl;
 			  doubleVec.clear(); 
 			}else{
 			  doubleVec.push_back(stringBuffer);
