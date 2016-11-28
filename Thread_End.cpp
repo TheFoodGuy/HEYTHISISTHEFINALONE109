@@ -10,7 +10,7 @@ Thread_End::Thread_End(void *(*_threadRoutine) (void *)):Thread(_threadRoutine){
 // 	tVec = new vector<vector<Var*> >(*)
 // }
 
-Thread_End *t = new Thread_End();
+
 
 void *runner(void *val){
 	cout << "In runner function" << endl;
@@ -18,23 +18,13 @@ void *runner(void *val){
 }
 
 void Thread_End::doThread(vector < vector<Var*> >&vec) {
-	//transform(vec.begin(), vec.end(), back_inserter(tVec), DeepCopy());
-
-	t->tVec = vec;
-	//cout << "Calling doThread in Thread_End" << endl;
-	vector <Var*> tempVec = vec.at(0);
-	cout << tempVec.at(0)->getString() << " in doThread" << endl;
-
-	//vector <Var*> tempVec2 = tVec.at(0);
-	cout << tempVec.at(0)->getString() << endl;
-	//cout << tVec.size() << " this is the size of tVec in doThread" << endl;
 
 	void *ptr = &vec;
 	
 	Thread *t = new Thread_End();
 	t->threadMainBody(ptr);
 	t->cleanup(t);
-    pthread_exit(NULL); // Invoke pthread_exit to terminate and invoke the cleanup functions.
+    //pthread_exit(NULL); // Invoke pthread_exit to terminate and invoke the cleanup functions.
 
 }
 
@@ -42,10 +32,8 @@ void *Thread_End::threadMainBody (void * arg){
 	
 	vector < vector<Var*> > *vec;
 	vec = (vector < vector<Var*> > *)arg;
-	vector<Var*> stringBuffer = vec->at(1);
-
-	cout << "In Thread_End threadMainBody" << endl;
-	cout << stringBuffer.at(0)->getString() << endl;
+	//vector<Var*> stringBuffer = vec->at(1);
+	//cout << stringBuffer.at(0)->getString() << endl;
 
 
 	pthread_mutex_lock(&mutex); // Acquire lock before forking the thread
@@ -70,7 +58,6 @@ void *Thread_End::threadMainBody (void * arg){
 
     //Create label tabel for this thread
 
-<<<<<<< HEAD
     int labelCounter = 0;
     int thread = 0; 
 
@@ -101,17 +88,15 @@ void *Thread_End::threadMainBody (void * arg){
 
 
 
-	cout << "THE TVEC SIZE IS: " << t->tVec.size() <<endl;
+	cout << "THE TVEC SIZE IS: " << vec->size() <<endl;
+	for (int i = 0; i<vec->size(); i++){
+		//vector<Var*> stringBuffer = t->tVec.at(i);
+		vector<Var*> stringBuffer = vec->at(i);
+	    Instruction *p = ins[stringBuffer.at(0)->getString()];
+		//Instruction *p = ins[stringBuffer.at(0)->getString()];
 
-	for (int i = 0; i<t->tVec.size(); i++){
-		vector<Var*> stringBuffer = t->tVec.at(i);
-		Instruction *p = ins[stringBuffer.at(0)->getString()];
-	       // Instruction *m = p->clone();
-		//cout << "came into for loop at: " <<i << " " <<stringBuffer.at(0)->getString() <<endl;	
+		if(p!=NULL){
 
-
-
-		if(t!=NULL){
 		Instruction *s = p->clone();	
 		if (dynamic_cast<Ops*>(s) && thread == 0){
 		   s->doOps(stringBuffer);
@@ -162,7 +147,7 @@ void *Thread_End::threadMainBody (void * arg){
 			outputFile.open(".err");
 			outputFile << "You have not entered a valid instruction type" <<endl;
 			exit(EXIT_SUCCESS);
-=======
+
     // int labelCounter = 0;
     // int thread = 0; 
 
@@ -252,16 +237,15 @@ void *Thread_End::threadMainBody (void * arg){
 	// 		outputFile.open(".err");
 	// 		outputFile << "You have not entered a valid instruction type" <<endl;
 	// 		exit(EXIT_SUCCESS);
->>>>>>> 633fe889deda45fa16777934fd4a67901e7e9d15
 			
-	// 	}//closes else down here
+		}//closes else down here
 
 
 
 
 
-	// }//closes for loop
-	// //cout << tVec.size() << " this is the size of tVec in threadMainBodoy"  <<endl;
+	}//closes for loop
+	//cout << tVec.size() << " this is the size of tVec in threadMainBodoy"  <<endl;
 	
 	return nullptr;
 }
@@ -273,5 +257,6 @@ Instruction* Thread_End::clone(){
 
 
 Thread_End::~Thread_End(){
-    
+    //pthread_exit(NULL); // Invoke pthread_exit to terminate and invoke the cleanup functions.
+
 }
