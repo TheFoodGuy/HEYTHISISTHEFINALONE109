@@ -58,7 +58,7 @@ pthread_t * Thread::getThreadHandler()
 // Start the execution of the thread
 void Thread::start()
 {
-    std::cout << "hi im in the start from Thread.cpp" <<  std::endl;
+    //std::cout << "hi im in the start from Thread.cpp" <<  std::endl;
     pthread_mutex_lock(&mutex); // Acquire lock before forking the thread
     started=true; // Set started to true
     // Invoke pthread create and pass to the routine the current object as the start routine need to be static
