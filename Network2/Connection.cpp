@@ -23,7 +23,7 @@ void * Connection::threadMainBody(void * arg){
     char file_name[1024];
     memset(file_name, 0, 1024);
     int read_bytes = tcpSocket->readFromSocket(file_name, 1023);
-    cout << "BELOW THERE IS THE OUTPUT OF BUFFER (connection.cpp)" <<endl;
+    //cout << "BELOW THERE IS THE OUTPUT OF BUFFER (connection.cpp)" <<endl;
     printf("%s\n",file_name);
 
     if(read_bytes > 0) {        
@@ -45,7 +45,7 @@ void * Connection::threadMainBody(void * arg){
             tcpSocket->writeToSocket(buffer,fsize);
 
 	    //BELOW IS WHERE YOU CAN SEE THE OUPUT OF THE BUFFER
-	    cout << "SHOWS BELOW IS MAGIC (connection.cpp)" <<endl;
+	    //cout << "SHOWS BELOW IS MAGIC (connection.cpp)" <<endl;
 	    printf("%s\n",buffer);
 
             free(buffer);

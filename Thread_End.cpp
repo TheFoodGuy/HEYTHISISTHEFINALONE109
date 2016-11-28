@@ -87,14 +87,14 @@ void *Thread_End::threadMainBody (void * arg){
 
 
 
-	cout << "THE TVEC SIZE IS: " << vec->size() <<endl;
+	//cout << "THE TVEC SIZE IS: " << vec->size() <<endl;
 	for (int i = 0; i<vec->size(); i++){
 		//vector<Var*> stringBuffer = t->tVec.at(i);
 		vector<Var*> stringBuffer = vec->at(i);
 	    Instruction *p = ins[stringBuffer.at(0)->getString()];
 		//Instruction *p = ins[stringBuffer.at(0)->getString()];
 	       // Instruction *m = p->clone();
-		cout << "came into for loop at: " <<i << " " <<stringBuffer.at(0)->getString() <<endl;	
+		//cout << "came into for loop at: " <<i << " " <<stringBuffer.at(0)->getString() <<endl;	
 
 
 		if(p!=NULL){
@@ -138,7 +138,7 @@ void *Thread_End::threadMainBody (void * arg){
 			  s->doThreadMethod(stringBuffer);
 			}
 			
-			cout << "got into thread part for dynamic cast(Thread_End.cpp)" <<endl;
+			//cout << "got into thread part for dynamic cast(Thread_End.cpp)" <<endl;
 
 		} else{
 		   //cout << "never supposed to come here" <<endl;

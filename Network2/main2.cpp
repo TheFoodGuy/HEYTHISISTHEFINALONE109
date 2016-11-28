@@ -31,7 +31,7 @@ void* runner(void *temp){
 
 // A function to print an error message and terminate
 int main (int argc,char ** argv){
-	cout << "in the main" <<endl;
+	//cout << "in the main" <<endl;
 	int limit = 5;
 	void* x = &limit; 
 	Thread *t = new myThread(runner);

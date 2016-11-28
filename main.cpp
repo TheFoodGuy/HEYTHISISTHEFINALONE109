@@ -52,11 +52,11 @@ int main()
 	outfile.open(".out",std::ofstream::trunc);
 	outfile.close();
 
-    if( randfile.peek() == std::ifstream::traits_type::eof()){ //this checks if the file is empty or not 
-        std::cout << "failed" << std::endl; 
-    }else{ //if not empty continue here 
-        std::cout << "success" << std::endl;
-    }  
+    // if( randfile.peek() == std::ifstream::traits_type::eof()){ //this checks if the file is empty or not 
+    //     std::cout << "failed" << std::endl; 
+    // }else{ //if not empty continue here 
+    //     std::cout << "success" << std::endl;
+    // }  
 
     //This while loop for figuring out the location of all the labels. It also
     //ensures the line length of each line in the file doesn't exceed 1024 characters

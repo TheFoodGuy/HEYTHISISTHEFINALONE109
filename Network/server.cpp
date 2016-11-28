@@ -28,16 +28,16 @@ int main (int argc,char ** argv){
 	TCPServerSocket *myTCP = new TCPServerSocket("0.0.0.0",9999,5);
 
 	bool val = myTCP->initializeSocket();
-	cout << val << endl;
-	cout << true<<endl;
+	// cout << val << endl;
+	// cout << true<<endl;
 
 	TCPSocket *mySocket = myTCP->getConnection();
-	cout << "after get conection " <<endl;
+	//cout << "after get conection " <<endl;
 		
 	int x = mySocket->writeToSocket(buffer, 65536);
-	cout << "x is: " <<x<<endl;
+	//cout << "x is: " <<x<<endl;
 	long y = mySocket->getStreamOutSize();
-	cout << "y is: " <<y<<endl;
+	//cout << "y is: " <<y<<endl;
 
 	//while(!mySocket->isPeerDisconnected()){	
 	//cout << "got into peer disconnected if statement" <<endl;
