@@ -7,7 +7,7 @@ class Lock: public Threads{
     public: 
         Lock();
         ~Lock();
-        void doThread(vector<Var*>const&);
+        void doThreadMethod(vector<Var*>&);
         void checkOps(vector<Var*>const&);
         Instruction* clone();
 };

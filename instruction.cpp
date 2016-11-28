@@ -36,6 +36,10 @@ void Instruction:: doThread(vector < vector<Var*> > &){
     
 }
 
+void Instruction:: doThreadMethod(vector<Var*>&){
+    
+}
+
 /*void doJMP(){}
 void doChar_Ops(){}
 void doMisc(){}

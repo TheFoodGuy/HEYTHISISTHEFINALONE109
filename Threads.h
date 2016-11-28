@@ -9,10 +9,9 @@ class Threads: public Instruction { //Thread class
 	public:
 		Threads();
 		virtual void doThread(vector < vector<Var*> > &);
+	 	virtual void doThreadMethod(vector<Var*>&);
 		virtual Instruction* clone();
 		~Threads();
 };
 
 #endif 
-
-

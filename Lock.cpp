@@ -8,7 +8,8 @@ Lock::~Lock(){
 
 }
 
-void Lock::doThread(vector<Var*>const&vec){
+void Lock::doThreadMethod(vector<Var*>&vec){
+cout << "got into lock method" <<endl;
 
 }
 

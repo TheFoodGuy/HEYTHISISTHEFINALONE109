@@ -8,7 +8,7 @@ Barrier::~Barrier(){
 
 }
 
-void Barrier::doThread(vector<Var*>const&vec){
+void Barrier::doThreadMethod(vector<Var*>&vec){
 
 }
 

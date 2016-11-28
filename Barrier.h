@@ -7,7 +7,7 @@ class Barrier: public Threads{
     public: 
         Barrier();
         ~Barrier();
-        void doThread(vector<Var*>const&);
+        void doThreadMethod(vector<Var*>&);
         void checkOps(vector<Var*>const&);
         Instruction* clone();
 };

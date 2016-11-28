@@ -1,8 +1,10 @@
-VAR $myint, NUMERIC, 10
-VAR $myint1, NUMERIC, 11
-VAR $myint2, NUMERIC, 22
-OUT 5, "hello"
+VAR $mystring, STRING, 100, "hello world"
+VAR $mystring, STRING, 100, "hello"
+VAR $myint2, NUMERIC, 350
 
-
-
-
+THREAD_BEGIN
+OUT "1"
+ADD $myint2, 3,4
+OUT "2"
+LOCK $myint2
+THREAD_END

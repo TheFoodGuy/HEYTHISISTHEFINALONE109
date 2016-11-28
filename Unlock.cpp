@@ -5,7 +5,7 @@ Unlock::Unlock(){
 }
 
 
-void Unlock::doThread(vector<Var*>const&vec){
+void Unlock::doThreadMethod(vector<Var*>&vec){
 
 }
 

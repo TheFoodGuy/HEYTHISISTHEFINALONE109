@@ -3,10 +3,10 @@ VAR $mystring, STRING, 100, "hello"
 VAR $myint2, NUMERIC, 350
 
 THREAD_BEGIN
-SLEEP 5
 OUT "1"
 ADD $myint2, 3,4
 OUT "2"
+LOCK $myint2
 THREAD_END
 
 OUT "hello"
