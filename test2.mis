@@ -1,5 +1,8 @@
 VAR $mybob, NUMERIC, 10 
 VAR $mybilly, NUMERIC, 3 
+VAR $mysham, STRING, 100, "HELLO"
+VAR $myyo, CHAR, 'c'
+VAR $myyaaa, REAL, 102.3
 SLEEP 10
 ADD $myjoe, $mybob, $mybilly
 SUB $mysam, $mybilly, 10 
@@ -13,15 +16,12 @@ LABEL LAB10
 OUT '\t'
 OUT $mysam 
 JMPZ LAB10, $mysam 
-VAR $mysham, STRING, 100, "HELLO"
-VAR $myyo, CHAR, 'c'
-OUT $mysham, $myyo 
-SET_STR_CHAR $mysham, 50, $myyo 
-SET_STR_CAHR $mysham, 51, 'a' 
-GET_STR_CHAR $mysham, 1, $myyo
+OUT $mysham, $myyo
 OUT $myyo, $mysham 
-VAR $myyoyo, REAL, 103.21 
-MUL $yay, $myyoyo, $myjoe 
-OUT $yay 
-DIV $yay, 2, 1 
-OUT $yay
+OUT $myyaaa
+LABEL THIRTY 
+OUT '\n'
+OUT $mybob, $mybilly 
+ADD $mybilly, $mybilly, $mybob 
+OUT $mybilly 
+JMPGT THIRTY, $mybob, $mybilly
