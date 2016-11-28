@@ -84,7 +84,7 @@ void Out::doMisc(vector<Var*>const&vec){
         }else if (dynamic_cast<String*>(vec.at(i))){
           if(isString(vec.at(i)->getString())==1){
 	     string tempo = (vec.at(i)->getString());
-		 //cout << tempo << endl;
+		 cout << tempo << " in out.cpp" <<endl;
 		 cout << "got to first part" << endl;
 		 //cout << "should go in here second" << endl;
 	     string tempo2 = tempo.substr(1,((int)tempo.length())-2);
