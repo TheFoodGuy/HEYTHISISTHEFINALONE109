@@ -242,14 +242,18 @@ void * Connection::threadMainBody(void * arg){
 			if(dynamic_cast<Thread_Begin*>(s)){
 			  thread = 1;
 			  doubleVec.push_back( stringBuffer ); 
+			  cout << "doublevec size: " <<doubleVec.size()<<endl;
 			  //doubleVec.push_back(stringBuffer);
 			}else if(dynamic_cast<Thread_End*>(s)){
 			  thread = 0;
 			  //s->doThread(stringBuffer);
 			  doubleVec.push_back(stringBuffer);
 			  s->doThread(doubleVec);
+		          cout << "doublevec size2: " <<doubleVec.size()<<endl;
+			  doubleVec.clear(); 
 			}else{
 			  doubleVec.push_back(stringBuffer);
+			  cout << "doublevec size3: " <<doubleVec.size()<<endl;
 			}
 
 		} else{

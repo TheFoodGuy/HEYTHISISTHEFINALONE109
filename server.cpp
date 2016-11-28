@@ -45,6 +45,7 @@ int main (int argc,char ** argv){
     c->start();
     garbageCollector->addConnection(c);
   }
+  cout << "went outside the if statements" <<endl;
   delete(garbageCollector);
   delete(tcpServerSocket);
   return 0;

@@ -61,11 +61,13 @@ void *Thread_End::threadMainBody (void * arg){
 	ins["UNLOCK"] = new Unlock();
 	ins["BARRIER"] = new Barrier();
 
+
+	cout << "the tVec size is: " << t->tVec.size() <<endl;
 	for (int i = 0; i<t->tVec.size(); i++){
 		vector<Var*> stringBuffer = t->tVec.at(i);
 		Instruction *p = ins[stringBuffer.at(0)->getString()];
 	       // Instruction *m = p->clone();
-		//cout << tempVec.at(0)->getString() <<endl;	
+		cout << "came into for loop at: " <<i << " " <<stringBuffer.at(0)->getString() <<endl;	
 
 
 
