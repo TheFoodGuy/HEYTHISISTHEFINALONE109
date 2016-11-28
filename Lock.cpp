@@ -9,7 +9,6 @@ Lock::~Lock(){
 }
 
 void Lock::doThreadMethod(vector<Var*>&vec){
-cout << "got into lock method" <<endl;
 
 }
 
