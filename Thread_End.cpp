@@ -19,11 +19,10 @@ void *runner(void *val){
 
 void Thread_End::doThread(vector < vector<Var*> >&vec) {
 	void *ptr = &vec;
-	
 	Thread *t = new Thread_End();
 	t->threadMainBody(ptr);
 	t->cleanup(t);
-    pthread_exit(NULL); // Invoke pthread_exit to terminate and invoke the cleanup functions.
+        //pthread_exit(NULL); // Invoke pthread_exit to terminate and invoke the cleanup functions.
 
 }
 
