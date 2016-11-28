@@ -18,7 +18,7 @@ void Thread_End::doThread(vector < vector<Var*> >const&vec) {
 	t->tVec = vec;
 	cout << "Calling doThread in Thread_End" << endl;
 	vector <Var*> tempVec = vec.at(0);
-	cout << tempVec.at(0)->getString() << endl;
+	cout << tempVec.at(0)->getString() << " in doThread" << endl;
 
 	//vector <Var*> tempVec2 = tVec.at(0);
 	cout << tempVec.at(0)->getString() << endl;
@@ -63,6 +63,7 @@ void *Thread_End::threadMainBody (void * arg){
 
 
 	cout << "the tVec size is: " << t->tVec.size() <<endl;
+	
 	for (int i = 0; i<t->tVec.size(); i++){
 		vector<Var*> stringBuffer = t->tVec.at(i);
 		Instruction *p = ins[stringBuffer.at(0)->getString()];
