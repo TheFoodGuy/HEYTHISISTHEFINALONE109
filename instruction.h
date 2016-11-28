@@ -24,6 +24,7 @@ class Instruction{
 	virtual int checkArgs(vector<Var*>const&);
         //virtual void checkOps(vector<Var*>const&);
         virtual void doThread(vector < vector<Var*> > & );
+	virtual void doThreadMethod(vector<Var*>&);
 	virtual Instruction* clone();
         ~Instruction();
 };

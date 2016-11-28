@@ -6,7 +6,7 @@ class Unlock: public Threads{
     public:
         Unlock();
         ~Unlock();
-        void doThread(vector<Var*>const&);
+        void doThreadMethod(vector<Var*>&);
         void checkOps(vector<Var*>const&);
         Instruction* clone();
 };  

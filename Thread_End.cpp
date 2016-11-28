@@ -20,11 +20,11 @@ void *runner(void *val){
 void Thread_End::doThread(vector < vector<Var*> >&vec) {
 
 	void *ptr = &vec;
-	
 	Thread *t = new Thread_End();
 	t->threadMainBody(ptr);
-	t->cleanup(t);
-    //pthread_exit(NULL); // Invoke pthread_exit to terminate and invoke the cleanup functions.
+	//t->cleanup(t);
+
+        //pthread_exit(NULL); // Invoke pthread_exit to terminate and invoke the cleanup functions.
 
 }
 
@@ -33,7 +33,6 @@ void *Thread_End::threadMainBody (void * arg){
 	vector < vector<Var*> > *vec;
 	vec = (vector < vector<Var*> > *)arg;
 	//vector<Var*> stringBuffer = vec->at(1);
-	//cout << stringBuffer.at(0)->getString() << endl;
 
 
 	pthread_mutex_lock(&mutex); // Acquire lock before forking the thread
@@ -94,6 +93,9 @@ void *Thread_End::threadMainBody (void * arg){
 		vector<Var*> stringBuffer = vec->at(i);
 	    Instruction *p = ins[stringBuffer.at(0)->getString()];
 		//Instruction *p = ins[stringBuffer.at(0)->getString()];
+	       // Instruction *m = p->clone();
+		cout << "came into for loop at: " <<i << " " <<stringBuffer.at(0)->getString() <<endl;	
+
 
 		if(p!=NULL){
 
@@ -125,11 +127,11 @@ void *Thread_End::threadMainBody (void * arg){
 			//throw error of no thread_end found when thread_begin called first	
 
 			//GOT TO EDIT BELOW METGHOD BY CREATING IT
-			/*
+			
 			if(dynamic_cast<Lock*>(s)){
 			  s->doThreadMethod(stringBuffer);
 			  //doubleVec.push_back(stringBuffer);
-			}else if(dynamic_cast<Unlock*>(s)){
+			}/*else if(dynamic_cast<Unlock*>(s)){
 			  //s->doThread(stringBuffer);
 			  s->doThreadMethod(stringBuffer);
 			}else if(dynamic_cast<Barrier*>(s)){
