@@ -4,7 +4,7 @@ Threads::Threads(){
 
 }
 
-void Threads::doThread(vector < vector<Var*> >const&vec){
+void Threads::doThread(vector < vector<Var*> > &vec){
 
 }
 

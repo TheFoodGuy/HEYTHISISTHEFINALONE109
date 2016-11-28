@@ -58,7 +58,7 @@ bool TCPServerSocket::initializeSocket ( ) // Initialize server socket
  	}
          //double colons for mac
          // Bind the socket handler to the serverAddr
-        if (bind(sock, (struct sockaddr *)&serverAddr, sizeof(struct sockaddr)) == -1) //-1 if there is an error or not there and what not 
+        if (::bind(sock, (struct sockaddr *)&serverAddr, sizeof(struct sockaddr)) == -1) //-1 if there is an error or not there and what not 
         {
                 // Close socket and return false if bind failed
 		close (sock);
