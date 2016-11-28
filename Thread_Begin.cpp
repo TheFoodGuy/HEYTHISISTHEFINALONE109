@@ -10,7 +10,7 @@ void Thread_Begin::doThread(vector < vector<Var*> >const&vec) {
 	// char msg1[] = "tid1";
 	//vector <Var*> tempVec = vec.at(0);
 	//cout << tempVec.at(0)->getString() << endl;
-	cout << "Calling Thread_Begin in doThread" << endl;
+	//cout << "Calling Thread_Begin in doThread" << endl;
 }
 
 void* Thread_Begin::threadMainBody (void * arg){
