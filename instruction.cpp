@@ -32,7 +32,7 @@ int Instruction:: checkArgs(vector<Var*>const&){
 	return 0;    
 }
 
-void Instruction:: doThread(vector < vector<Var*> >const&){
+void Instruction:: doThread(vector < vector<Var*> > &){
     
 }
 

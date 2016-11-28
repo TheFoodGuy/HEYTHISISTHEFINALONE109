@@ -23,7 +23,7 @@ class Instruction{
 	virtual int doGet(vector<Var*>const&);
 	virtual int checkArgs(vector<Var*>const&);
         //virtual void checkOps(vector<Var*>const&);
-        virtual void doThread(vector < vector<Var*> >const& );
+        virtual void doThread(vector < vector<Var*> > & );
 	virtual Instruction* clone();
         ~Instruction();
 };
