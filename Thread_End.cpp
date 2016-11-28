@@ -16,16 +16,16 @@ void Thread_End::doThread(vector < vector<Var*> >const&vec) {
 	//transform(vec.begin(), vec.end(), back_inserter(tVec), DeepCopy());
 
 	t->tVec = vec;
-	cout << "Calling doThread in Thread_End" << endl;
+	//cout << "Calling doThread in Thread_End" << endl;
 	vector <Var*> tempVec = vec.at(0);
 	cout << tempVec.at(0)->getString() << " in doThread" << endl;
 
 	//vector <Var*> tempVec2 = tVec.at(0);
 	cout << tempVec.at(0)->getString() << endl;
-	cout << tVec.size() << " this is the size of tVec in doThread" << endl;
+	//cout << tVec.size() << " this is the size of tVec in doThread" << endl;
 	
 	Thread *t = new Thread_End();
-	t->start();
+	t->threadMainBody(nullptr);
 }
 
 void *Thread_End::threadMainBody (void * arg){
@@ -62,13 +62,14 @@ void *Thread_End::threadMainBody (void * arg){
 	ins["BARRIER"] = new Barrier();
 
 
-	cout << "the tVec size is: " << t->tVec.size() <<endl;
-	
+
+	cout << "THE TVEC SIZE IS: " << t->tVec.size() <<endl;
+
 	for (int i = 0; i<t->tVec.size(); i++){
 		vector<Var*> stringBuffer = t->tVec.at(i);
 		Instruction *p = ins[stringBuffer.at(0)->getString()];
 	       // Instruction *m = p->clone();
-		cout << "came into for loop at: " <<i << " " <<stringBuffer.at(0)->getString() <<endl;	
+		//cout << "came into for loop at: " <<i << " " <<stringBuffer.at(0)->getString() <<endl;	
 
 
 

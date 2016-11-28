@@ -83,9 +83,9 @@ TCPSocket * TCPServerSocket::getConnection (int timeoutSec, int timeoutMilli,int
 	if (timeoutSec==0 && timeoutMilli == 0 )// Blocking mode //meaning it'll be at an infinite mode'
 	{
                 // Wait for connection indefinitely
-                cout << "why are you printing out twice" << endl;
+                //cout << "why are you printing out twice" << endl;
 		newsock = accept(sock, (struct sockaddr *)&clientAddr,&sin_size);
-		cout << "the new sock returned in TCPServerSocket " <<newsock <<endl; 
+		//cout << "the new sock returned in TCPServerSocket " <<newsock <<endl; 
 		//cout << "client addr is " << clientAddr.sin_addr<<endl;
 	}
 	else { // Set up time out timeval and file descriptors set

@@ -54,7 +54,7 @@ void * Connection::threadMainBody(void * arg){
             tcpSocket->writeToSocket(buffer,fsize);
 
 	    //BELOW IS WHERE YOU CAN SEE THE OUPUT OF THE BUFFER
-	    printf("%s\n",buffer);
+	    //printf("%s\n",buffer);
 	    //int x = 5+3;
 	    //fgets(line, 5, f); 
 
@@ -242,18 +242,18 @@ void * Connection::threadMainBody(void * arg){
 			if(dynamic_cast<Thread_Begin*>(s)){
 			  thread = 1;
 			  doubleVec.push_back( stringBuffer ); 
-			  cout << "doublevec size: " <<doubleVec.size()<<endl;
+			  //cout << "doublevec size: " <<doubleVec.size()<<endl;
 			  //doubleVec.push_back(stringBuffer);
 			}else if(dynamic_cast<Thread_End*>(s)){
 			  thread = 0;
 			  //s->doThread(stringBuffer);
 			  doubleVec.push_back(stringBuffer);
 			  s->doThread(doubleVec);
-		          cout << "doublevec size2: " <<doubleVec.size()<<endl;
+		          //cout << "doublevec size2: " <<doubleVec.size()<<endl;
 			  doubleVec.clear(); 
 			}else{
 			  doubleVec.push_back(stringBuffer);
-			  cout << "doublevec size3: " <<doubleVec.size()<<endl;
+			  //cout << "doublevec size3: " <<doubleVec.size()<<endl;
 			}
 
 		} else{

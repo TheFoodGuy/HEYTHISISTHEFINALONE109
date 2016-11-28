@@ -3,8 +3,8 @@ VAR $mystring, STRING, 100, "hello"
 VAR $myint2, NUMERIC, 350
 
 THREAD_BEGIN
-VAR $mystring, STRING, 100, "hello world"
 OUT "yoo"
+SLEEP 5
 ADD $myint2, 3,4
 OUT "hey"
 THREAD_END
@@ -19,5 +19,6 @@ VAR $mystring, STRING, 100, "eassup"
 OUT 5
 SUB $myint2,2,9
 OUT "work"
+OUT $myint2
 THREAD_END
 

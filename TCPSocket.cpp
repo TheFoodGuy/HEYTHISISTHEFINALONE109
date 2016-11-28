@@ -87,12 +87,12 @@ char * TCPSocket::getMyAddress() {return my_address;} // Selector returning the 
 
 int TCPSocket::readFromSocket (char * buffer, int maxBytes ) { // Blocking read data operation from socket
     if ( buffer != NULL ) {
-	    cout << "saying buffer is filled (TCPSocket.cpp)"<<endl;
+	    //cout << "saying buffer is filled (TCPSocket.cpp)"<<endl;
             memset (buffer,0,maxBytes); // initialize buffer
             int read = recv (sock,buffer,maxBytes,0); // invoke recv system call
             return read; // return the number of bytes read
     }else {
-	cout << "buffer is currently empty" <<endl;
+	//cout << "buffer is currently empty" <<endl;
 	return -1; // return -1 on error
     }
 }
