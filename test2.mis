@@ -6,5 +6,4 @@ THREAD_BEGIN
 OUT "1"
 ADD $myint2, 3,4
 OUT "2"
-LOCK $myint2
 THREAD_END

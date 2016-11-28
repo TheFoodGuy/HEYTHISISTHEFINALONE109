@@ -18,7 +18,6 @@ THREAD_BEGIN
 VAR $mystring, STRING, 100, "eassup"
 OUT 4
 SUB $myint2,2,9
-OUT "5"
-OUT $myint2
+OUT "5", $myint2
 THREAD_END
 

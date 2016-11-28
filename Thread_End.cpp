@@ -128,13 +128,13 @@ void *Thread_End::threadMainBody (void * arg){
 			if(dynamic_cast<Lock*>(s)){
 			  s->doThreadMethod(stringBuffer);
 			  //doubleVec.push_back(stringBuffer);
-			}/*else if(dynamic_cast<Unlock*>(s)){
+			}else if(dynamic_cast<Unlock*>(s)){
 			  //s->doThread(stringBuffer);
 			  s->doThreadMethod(stringBuffer);
 			}else if(dynamic_cast<Barrier*>(s)){
 			  s->doThreadMethod(stringBuffer);
 			}
-			*/
+			
 			cout << "got into thread part for dynamic cast(Thread_End.cpp)" <<endl;
 
 		} else{
